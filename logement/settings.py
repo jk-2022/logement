@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'chat',
     'locations',
-    'users'
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +71,13 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
 
 WSGI_APPLICATION = 'logement.wsgi.application'
 
