@@ -1,9 +1,8 @@
 from rest_framework import serializers
 from .models import Logement
-from users.serializers import UserSerializer
 
 class LogementSerializer(serializers.ModelSerializer):
-    demarcheur = UserSerializer(read_only=True)
+    demarcheur = serializers.ReadOnlyField(source='demarcheur.username')
 
     class Meta:
         model = Logement
@@ -11,3 +10,4 @@ class LogementSerializer(serializers.ModelSerializer):
             'id', 'titre', 'description', 'prix', 'type', 'adresse',
             'statut', 'date_publication', 'demarcheur'
         ]
+
